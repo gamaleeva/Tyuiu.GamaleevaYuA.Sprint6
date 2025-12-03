@@ -43,4 +43,3 @@ namespace Tyuiu.GamaleevaYuA.Sprint6.Task1.V29
         }
     }
 }
-

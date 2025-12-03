@@ -34,10 +34,10 @@
             textBoxStartStep_GYA = new TextBox();
             textBoxResult_GYA = new TextBox();
             groupBoxTask_GYA = new GroupBox();
-            groupBoxOutput_GYA = new GroupBox();
-            groupBoxInput_GYA = new GroupBox();
             textBoxTask_GYA = new TextBox();
+            groupBoxOutput_GYA = new GroupBox();
             textBoxFunc_GYA = new TextBox();
+            groupBoxInput_GYA = new GroupBox();
             textBoxStart_GYA = new TextBox();
             textBoxStop_GYA = new TextBox();
             groupBoxTask_GYA.SuspendLayout();
@@ -102,6 +102,17 @@
             groupBoxTask_GYA.TabStop = false;
             groupBoxTask_GYA.Text = "Условие";
             // 
+            // textBoxTask_GYA
+            // 
+            textBoxTask_GYA.BorderStyle = BorderStyle.None;
+            textBoxTask_GYA.Location = new Point(6, 22);
+            textBoxTask_GYA.Multiline = true;
+            textBoxTask_GYA.Name = "textBoxTask_GYA";
+            textBoxTask_GYA.ReadOnly = true;
+            textBoxTask_GYA.Size = new Size(303, 275);
+            textBoxTask_GYA.TabIndex = 0;
+            textBoxTask_GYA.Text = "Протабулировать функцию на заданном диапазоне. Результат вывести в виде таблицы";
+            // 
             // groupBoxOutput_GYA
             // 
             groupBoxOutput_GYA.Controls.Add(textBoxFunc_GYA);
@@ -112,6 +123,16 @@
             groupBoxOutput_GYA.TabIndex = 6;
             groupBoxOutput_GYA.TabStop = false;
             groupBoxOutput_GYA.Text = "Вывод данных";
+            // 
+            // textBoxFunc_GYA
+            // 
+            textBoxFunc_GYA.BorderStyle = BorderStyle.None;
+            textBoxFunc_GYA.Location = new Point(16, 22);
+            textBoxFunc_GYA.Name = "textBoxFunc_GYA";
+            textBoxFunc_GYA.ReadOnly = true;
+            textBoxFunc_GYA.Size = new Size(100, 16);
+            textBoxFunc_GYA.TabIndex = 5;
+            textBoxFunc_GYA.Text = "Результат";
             // 
             // groupBoxInput_GYA
             // 
@@ -125,27 +146,6 @@
             groupBoxInput_GYA.TabIndex = 7;
             groupBoxInput_GYA.TabStop = false;
             groupBoxInput_GYA.Text = "Ввод данных";
-            // 
-            // textBoxTask_GYA
-            // 
-            textBoxTask_GYA.BorderStyle = BorderStyle.None;
-            textBoxTask_GYA.Location = new Point(6, 22);
-            textBoxTask_GYA.Multiline = true;
-            textBoxTask_GYA.Name = "textBoxTask_GYA";
-            textBoxTask_GYA.ReadOnly = true;
-            textBoxTask_GYA.Size = new Size(303, 275);
-            textBoxTask_GYA.TabIndex = 0;
-            textBoxTask_GYA.Text = "Протабулировать функцию на заданном диапазоне. Результат вывести в виде таблицы";
-            // 
-            // textBoxFunc_GYA
-            // 
-            textBoxFunc_GYA.BorderStyle = BorderStyle.None;
-            textBoxFunc_GYA.Location = new Point(16, 22);
-            textBoxFunc_GYA.Name = "textBoxFunc_GYA";
-            textBoxFunc_GYA.ReadOnly = true;
-            textBoxFunc_GYA.Size = new Size(100, 16);
-            textBoxFunc_GYA.TabIndex = 5;
-            textBoxFunc_GYA.Text = "Результат";
             // 
             // textBoxStart_GYA
             // 
@@ -206,4 +206,7 @@
         private TextBox textBoxStart_GYA;
         private TextBox textBoxStop_GYA;
     }
+
+
+
 }
