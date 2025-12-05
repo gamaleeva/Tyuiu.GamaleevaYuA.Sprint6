@@ -1,7 +1,8 @@
-﻿namespace Tyuiu.GamaleevaYuA.Sprint6.Task1.V29
+﻿namespace Tyuiu.GamaleevaYuA.Sprint6.Task2.V17
 {
     partial class FormMain
     {
+
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -28,6 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             buttonHelp_GYA = new Button();
             buttonDone_GYA = new Button();
             textBoxStopStep_GYA = new TextBox();
@@ -35,13 +39,18 @@
             groupBoxTask_GYA = new GroupBox();
             textBoxTask_GYA = new TextBox();
             groupBoxOutput_GYA = new GroupBox();
+            chartFunction_GYA = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            dataGridViewFunction_GYA = new DataGridView();
+            ColumnX = new DataGridViewTextBoxColumn();
+            ColumnFX = new DataGridViewTextBoxColumn();
             textBoxFunc_GYA = new TextBox();
             groupBoxInput_GYA = new GroupBox();
             textBoxStart_GYA = new TextBox();
             textBoxStop_GYA = new TextBox();
-            textBoxResult_GYA = new TextBox();
             groupBoxTask_GYA.SuspendLayout();
             groupBoxOutput_GYA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartFunction_GYA).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFunction_GYA).BeginInit();
             groupBoxInput_GYA.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,7 +63,7 @@
             buttonHelp_GYA.TabIndex = 0;
             buttonHelp_GYA.Text = "Справка";
             buttonHelp_GYA.UseVisualStyleBackColor = false;
-            buttonHelp_GYA.Click += buttonHelp_Click;
+            buttonHelp_GYA.Click += buttonHelp_GYA_Click;
             // 
             // buttonDone_GYA
             // 
@@ -65,7 +74,10 @@
             buttonDone_GYA.TabIndex = 1;
             buttonDone_GYA.Text = "Выполнить";
             buttonDone_GYA.UseVisualStyleBackColor = false;
-            buttonDone_GYA.Click += buttonDone_Click;
+            buttonDone_GYA.Click += buttonDone_GYA_Click;
+            buttonDone_GYA.MouseDown += buttonDone_GYA_MouseDown;
+            buttonDone_GYA.MouseEnter += buttonDone_GYA_MouseEnter;
+            buttonDone_GYA.MouseLeave += buttonDone_GYA_MouseLeave;
             // 
             // textBoxStopStep_GYA
             // 
@@ -98,20 +110,60 @@
             textBoxTask_GYA.Multiline = true;
             textBoxTask_GYA.Name = "textBoxTask_GYA";
             textBoxTask_GYA.ReadOnly = true;
-            textBoxTask_GYA.Size = new Size(303, 275);
+            textBoxTask_GYA.Size = new Size(472, 294);
             textBoxTask_GYA.TabIndex = 0;
-            textBoxTask_GYA.Text = "Протабулировать функцию на заданном диапазоне. Результат вывести в виде таблицы";
+            textBoxTask_GYA.Text = "Протабулировать функцию на заданном диапазоне. Результат вывести в DataGridView и построить график функции\r\n\r\n";
             // 
             // groupBoxOutput_GYA
             // 
+            groupBoxOutput_GYA.Controls.Add(chartFunction_GYA);
+            groupBoxOutput_GYA.Controls.Add(dataGridViewFunction_GYA);
             groupBoxOutput_GYA.Controls.Add(textBoxFunc_GYA);
-            groupBoxOutput_GYA.Controls.Add(textBoxResult_GYA);
             groupBoxOutput_GYA.Location = new Point(502, 12);
             groupBoxOutput_GYA.Name = "groupBoxOutput_GYA";
-            groupBoxOutput_GYA.Size = new Size(286, 426);
+            groupBoxOutput_GYA.Size = new Size(531, 426);
             groupBoxOutput_GYA.TabIndex = 6;
             groupBoxOutput_GYA.TabStop = false;
             groupBoxOutput_GYA.Text = "Вывод данных";
+            // 
+            // chartFunction_GYA
+            // 
+            chartArea1.Name = "ChartArea1";
+            chartFunction_GYA.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartFunction_GYA.Legends.Add(legend1);
+            chartFunction_GYA.Location = new Point(190, 56);
+            chartFunction_GYA.Name = "chartFunction_GYA";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartFunction_GYA.Series.Add(series1);
+            chartFunction_GYA.Size = new Size(312, 330);
+            chartFunction_GYA.TabIndex = 8;
+            // 
+            // dataGridViewFunction_GYA
+            // 
+            dataGridViewFunction_GYA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewFunction_GYA.Columns.AddRange(new DataGridViewColumn[] { ColumnX, ColumnFX });
+            dataGridViewFunction_GYA.Location = new Point(25, 56);
+            dataGridViewFunction_GYA.Name = "dataGridViewFunction_GYA";
+            dataGridViewFunction_GYA.RowHeadersVisible = false;
+            dataGridViewFunction_GYA.Size = new Size(129, 330);
+            dataGridViewFunction_GYA.TabIndex = 6;
+            // 
+            // ColumnX
+            // 
+            ColumnX.HeaderText = "X";
+            ColumnX.Name = "ColumnX";
+            ColumnX.Width = 50;
+            // 
+            // ColumnFX
+            // 
+            ColumnFX.HeaderText = "F(X)";
+            ColumnFX.Name = "ColumnFX";
+            ColumnFX.Width = 50;
             // 
             // textBoxFunc_GYA
             // 
@@ -156,22 +208,11 @@
             textBoxStop_GYA.TabIndex = 1;
             textBoxStop_GYA.Text = "Конец шага";
             // 
-            // textBoxResult_GYA
-            // 
-            textBoxResult_GYA.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxResult_GYA.Location = new Point(16, 44);
-            textBoxResult_GYA.Multiline = true;
-            textBoxResult_GYA.Name = "textBoxResult_GYA";
-            textBoxResult_GYA.ReadOnly = true;
-            textBoxResult_GYA.ScrollBars = ScrollBars.Vertical;
-            textBoxResult_GYA.Size = new Size(255, 369);
-            textBoxResult_GYA.TabIndex = 4;
-            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1042, 450);
             Controls.Add(groupBoxInput_GYA);
             Controls.Add(groupBoxOutput_GYA);
             Controls.Add(groupBoxTask_GYA);
@@ -181,11 +222,13 @@
             MaximizeBox = false;
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Спринт 6 | Таск 1 | Вариант 29 | Гамалеева Ю.А.";
+            Text = "Спринт 6 | Таск 2 | Вариант 17 | Гамалеева Ю.А.";
             groupBoxTask_GYA.ResumeLayout(false);
             groupBoxTask_GYA.PerformLayout();
             groupBoxOutput_GYA.ResumeLayout(false);
             groupBoxOutput_GYA.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chartFunction_GYA).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFunction_GYA).EndInit();
             groupBoxInput_GYA.ResumeLayout(false);
             groupBoxInput_GYA.PerformLayout();
             ResumeLayout(false);
@@ -204,9 +247,9 @@
         private TextBox textBoxFunc_GYA;
         private TextBox textBoxStart_GYA;
         private TextBox textBoxStop_GYA;
-        private TextBox textBoxResult_GYA;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartFunction_GYA;
+        private DataGridView dataGridViewFunction_GYA;
+        private DataGridViewTextBoxColumn ColumnX;
+        private DataGridViewTextBoxColumn ColumnFX;
     }
-
-
-
 }
