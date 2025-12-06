@@ -12,9 +12,13 @@ namespace Tyuiu.GamaleevaYuA.Sprint6.Task6.V14.Lib
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (line.Contains('z'))
+                    string[] newline = line.Split();
+                    for (int i = 0; i< newline.Length; i++)
                     {
-                        resStr = resStr + " " + line;
+                        if (newline[i].Contains('z'))
+                        {
+                            resStr = resStr + " " + newline[i];
+                        }
                     }
                 }
             }
