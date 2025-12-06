@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Design;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
 using tyuiu.cources.programming.interfaces.Sprint6;
 namespace Tyuiu.GamaleevaYuA.Sprint6.Task6.V14.Lib
 {
@@ -6,7 +7,8 @@ namespace Tyuiu.GamaleevaYuA.Sprint6.Task6.V14.Lib
     {
         public string CollectTextFromFile(string path)
         {
-            string resStr = "";
+            int len = 0;
+            
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
@@ -17,12 +19,29 @@ namespace Tyuiu.GamaleevaYuA.Sprint6.Task6.V14.Lib
                     {
                         if (newline[i].Contains('z'))
                         {
-                            resStr = resStr + " " + newline[i];
+                            len += 1;
                         }
                     }
                 }
             }
-            return resStr;
+            string[] resStr = new string[len];
+            int index = 0;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] newline = line.Split();
+                    for (int i = 0; i < newline.Length; i++)
+                    {
+                        if (newline[i].Contains('z'))
+                        {
+                            resStr[index++] = newline[i];
+                        }
+                    }
+                }
+            }
+            return string.Join(" ", resStr);
         }
     }
 }
