@@ -53,6 +53,7 @@
             textBox1.Size = new Size(284, 201);
             textBox1.TabIndex = 1;
             textBox1.Text = resources.GetString("textBox1.Text");
+          
             // 
             // buttonOK_GYA
             // 
